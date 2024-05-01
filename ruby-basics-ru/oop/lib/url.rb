@@ -38,11 +38,7 @@ class Url
   end
 
   def <=>(other)
-    result = (scheme == other.scheme) &&
-             (host == other.host) &&
-             (port == other.port) &&
-             query_string_equal?(query_params, other.query_params)
-   result ? 0 : -1
+    [scheme, host, port, query_params] <=> [other.scheme, other.host, other.port, other.query_params]
   end
 end
 # END
